@@ -53,8 +53,11 @@ public class Usuario {
 	
 	
 	public boolean hacerLogin(String username, String passwd) {
+	    if (intentos <= 0) {
+	        return false;  // Cuenta bloqueada
+	    }
 	    boolean signed = false;
-	    if (this.intentos > 0 && username.equals(credencial.getUsername()) && credencial.comprobarPasswd(passwd)) {
+	    if (username.equals(credencial.getUsername()) && credencial.comprobarPasswd(passwd)) {
 	        signed = true;
 	        this.intentos = 3;  // Reseteamos los intentos después de un login exitoso
 	    } else {

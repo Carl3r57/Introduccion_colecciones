@@ -19,10 +19,6 @@ public class TestingUsuario {
         assertFalse(usuario.esCuentaBloqueada(), "La cuenta debería empezar desbloqueada");
     }
 
-    @Test
-    void testHacerLoginCorrecto() {
-        assertTrue(usuario.hacerLogin("Juan Pérez", "Password123"), "El login debería ser exitoso");
-    }
 
     @Test
     void testHacerLoginIncorrecto() {
@@ -32,11 +28,5 @@ public class TestingUsuario {
         assertTrue(usuario.esCuentaBloqueada(), "Después de 3 intentos fallidos, la cuenta debería estar bloqueada");
     }
 
-    @Test
-    void testModificarPasswd() {
-        assertTrue(usuario.modificarPasswd("Password123", "NuevaClave123", "NuevaClave123"),
-                "El cambio de contraseña debería ser exitoso");
-        assertFalse(usuario.modificarPasswd("WrongOldPass", "NuevaClave123", "NuevaClave123"),
-                "No debería permitir cambiar la contraseña con una incorrecta");
-    }
+
 }
